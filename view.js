@@ -11,6 +11,7 @@ view2048 = {
 
   init: function(  ) {
     this.update();
+    this.addEventHandler();
   },
 
   update: function( args ) {
@@ -27,6 +28,16 @@ view2048 = {
     }
   },
 
+  addEventHandler: function(  ) {
+    var that=this;
+    window.addEventListener( "keydown", function(e) {
+      if( e.keyCode === 37 ) that.model.move("left");
+      if( e.keyCode === 38 ) that.model.move("up");
+      if( e.keyCode === 39 ) that.model.move("right");
+      if( e.keyCode === 40 ) that.model.move("down");
+      that.update();
+    });
+  },
 
 }
 
